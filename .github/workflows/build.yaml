@@ -1,0 +1,23 @@
+name: "build"
+
+on: [push]
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    name: "build nextjs app"
+  
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: use node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          registry-url: https://registry.npmjs.org/
+      
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build 
+          npm run test

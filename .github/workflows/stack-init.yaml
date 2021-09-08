@@ -1,0 +1,52 @@
+  name: "Nextjs app provision"
+  on:
+    workflow_dispatch:
+      inputs:
+
+        AWS_S3_BUCKET_NAME:
+          required: true
+          description: 'Unique name to create bucket in aws'
+
+  jobs:
+    stack-initialization:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "Creating nextjs sample application and deploying to aws s3"
+        - name: checkout
+          uses: actions/checkout@v2
+          with:
+            persist-credentials: false
+        
+        - name: use node.js ${{ github.event.inputs.NODE_VERSION }} 
+          uses: actions/setup-node@v1
+          with:
+            node-version: v12.22.4
+            registry-url: https://registry.npmjs.org/
+
+               
+        - name: substitute user inputs in the workflow files
+          uses: microsoft/variable-substitution@v1 
+          with:
+            files: '.github/workflows/deploy.yaml, .github/workflows/build.yaml'
+          env:
+            ___AWS_KEY_ID___: '${{ secrets.AWS_KEY_ID }}'
+            ___AWS_SECRET_ACCESS_KEY___: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+            ___AWS_S3_BUCKET_NAME___: '${{ github.event.inputs.AWS_S3_BUCKET_NAME }}'
+
+        - name: stacks framework code generation
+          run: |
+            npx create-next-app nextjs-scaffold --use-npm --example "https://github.com/vercel/next-learn-starter/tree/master/learn-starter"
+            cp -r nextjs-scaffold/* .
+            rm -rf nextjs-scaffold
+            
+        - name: Configure git
+          run: |
+            git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+            git config --global user.name "${{ github.actor }}"
+            git remote set-url origin https://${{ github.actor }}:${{  secrets.GH_PAT  }}@github.com/${{ github.repository }}.git
+            
+        - name: Commit generated code and initialize workflows
+          run: |
+            git add .
+            git commit -m "Generate framework code and initialize workflows"
+            git push origin -u main

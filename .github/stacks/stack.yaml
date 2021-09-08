@@ -1,0 +1,47 @@
+version: 1.0
+
+name: A stack to deploy nextjs site to AWS S3
+description: A stack to deploy nextjs site to AWS S3
+branding:
+  icon: 'aws.svg'
+  color: 'blue'
+
+inputs:
+  - name: AWS_S3_BUCKET_NAME
+    description: Provide a Unique name for your AWS S3 Bucket
+
+  - name: AWS_KEY_ID
+    description: Enter your AWS Key ID. This will be stored as a secret
+    is_secret: true
+
+  - name: AWS_SECRET_ACCESS_KEY
+    description: Enter your AWS Secret Access key. This will be stored as a secret
+    is_secret: true
+
+configs:
+  repo-metadata:
+    topics:
+    - nextjs
+    - aws
+
+  branches:
+  - name: main
+
+  environments: 
+  - name: production
+          
+  security:
+    parameters: 
+    - vulnerability-alerts: true
+      automated-security-fixes: true
+
+github-apps:
+- name: AWS
+  parameters:
+    environment: production
+    secrets:
+      - name: AWS_KEY_ID 
+      - name: AWS_SECRET_ACCESS_KEY
+
+init:
+- uses: ".github/workflows/stack-init.yaml"
