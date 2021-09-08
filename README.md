@@ -1,0 +1,1 @@
+# nextjs-aws-s3-stack
