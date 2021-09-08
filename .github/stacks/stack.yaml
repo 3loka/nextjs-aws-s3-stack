@@ -45,22 +45,22 @@ configs:
         - nextjs
         - aws
 
-  - branches:
-    - name: main
-      parameters:
-        dismiss-stale-reviews: true                     
-        required-approving-review-count: 1
-        require-code-owner-reviews: true
+  # - branches:
+  #   - name: main
+  #     parameters:
+  #       dismiss-stale-reviews: true                     
+  #       required-approving-review-count: 1
+  #       require-code-owner-reviews: true
 
-  - environments: 
-    - name: production
-      parameters:
-        protected-branches: true
+  # - environments: 
+  #   - name: production
+  #     parameters:
+  #       protected-branches: true
             
-  - security:
-      parameters: 
-        vulnerability-alerts: true
-        automated-security-fixes: true
+  # - security:
+  #     parameters: 
+  #       vulnerability-alerts: true
+  #       automated-security-fixes: true
 
 github-apps:
 - name: AWS
