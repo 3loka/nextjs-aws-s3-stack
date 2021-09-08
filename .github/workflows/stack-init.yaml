@@ -1,4 +1,5 @@
   name: "Nextjs app Setup in AWS"
+  
   on:
     workflow_dispatch:
 
