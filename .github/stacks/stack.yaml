@@ -39,9 +39,9 @@ configs:
         - name: AWS_REGION
           value: {{inputs.AWS_REGION}}
         
-    topics:
-    - nextjs
-    - aws
+      topics:
+      - nextjs
+      - aws
 
 - branches:
   - name: main
