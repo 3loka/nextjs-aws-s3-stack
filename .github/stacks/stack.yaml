@@ -9,39 +9,53 @@ branding:
 inputs:
   - name: AWS_S3_BUCKET_NAME
     description: Provide a Unique name for your AWS S3 Bucket
+    required: true
 
   - name: AWS_KEY_ID
     description: Enter your AWS Key ID. This will be stored as a secret
     is_secret: true
-
+    required: true
+    
   - name: AWS_SECRET_ACCESS_KEY
     description: Enter your AWS Secret Access key. This will be stored as a secret
     is_secret: true
+    required: true
+
+  - name: AWS_REGION
+    description: Which Region do you want to Deploy to?
+    is_secret: true
+    required: true
 
 configs:
-  repo-metadata:
+- repo-metadata:
+    parameters:
+      secrets: 
+        - name: AWS_KEY_ID
+          value: {{inputs.AWS_KEY_ID}}
+        - name: AWS_SECRET_ACCESS_KEY
+          value: {{inputs.AWS_SECRET_ACCESS_KEY}}
+        - name: AWS_S3_BUCKET_NAME
+          value: {{inputs.AWS_S3_BUCKET_NAME}}
+        - name: AWS_REGION
+          value: {{inputs.AWS_REGION}}
+        
     topics:
     - nextjs
     - aws
 
-  branches:
+- branches:
   - name: main
 
-  environments: 
+- environments: 
   - name: production
           
-  security:
+- security:
     parameters: 
-    - vulnerability-alerts: true
+      vulnerability-alerts: true
       automated-security-fixes: true
 
 github-apps:
 - name: AWS
-  parameters:
-    environment: production
-    secrets:
-      - name: AWS_KEY_ID 
-      - name: AWS_SECRET_ACCESS_KEY
 
 init:
 - uses: ".github/workflows/stack-init.yaml"

@@ -1,11 +1,6 @@
-  name: "Nextjs app provision"
+  name: "Nextjs app Setup in AWS"
   on:
     workflow_dispatch:
-      inputs:
-
-        AWS_S3_BUCKET_NAME:
-          required: true
-          description: 'Unique name to create bucket in aws'
 
   jobs:
     stack-initialization:
@@ -17,23 +12,13 @@
           with:
             persist-credentials: false
         
-        - name: use node.js ${{ github.event.inputs.NODE_VERSION }} 
+        - name: use node.js v14 
           uses: actions/setup-node@v1
           with:
-            node-version: v12.22.4
+            node-version: '14'
             registry-url: https://registry.npmjs.org/
 
-               
-        - name: substitute user inputs in the workflow files
-          uses: microsoft/variable-substitution@v1 
-          with:
-            files: '.github/workflows/deploy.yaml, .github/workflows/build.yaml'
-          env:
-            ___AWS_KEY_ID___: '${{ secrets.AWS_KEY_ID }}'
-            ___AWS_SECRET_ACCESS_KEY___: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
-            ___AWS_S3_BUCKET_NAME___: '${{ github.event.inputs.AWS_S3_BUCKET_NAME }}'
-
-        - name: stacks framework code generation
+        - name: Stacks framework code generation
           run: |
             npx create-next-app nextjs-scaffold --use-npm --example "https://github.com/vercel/next-learn-starter/tree/master/learn-starter"
             cp -r nextjs-scaffold/* .
