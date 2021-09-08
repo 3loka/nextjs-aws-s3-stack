@@ -1,7 +1,8 @@
-version: 1.0
+version: 0.1.0   
 
 name: A stack to deploy nextjs site to AWS S3
 description: A stack to deploy nextjs site to AWS S3
+
 branding:
   icon: 'aws.svg'
   color: 'blue'
@@ -9,6 +10,7 @@ branding:
 inputs:
   - name: AWS_S3_BUCKET_NAME
     description: Provide a Unique name for your AWS S3 Bucket
+    is_secret: true
     required: true
 
   - name: AWS_KEY_ID
