@@ -54,7 +54,11 @@ configs:
         - nextjs
         - aws
 
-  - branches:                                            # branching configs for new repository
+  - branches:   
+    - name: stack-initialized                            # A temporary branch for stack initialization since main is protected.
+      parameters: 
+        dismiss-stale-reviews: true 
+        
     - name: main
       parameters:
         dismiss-stale-reviews: true                      # default: false
