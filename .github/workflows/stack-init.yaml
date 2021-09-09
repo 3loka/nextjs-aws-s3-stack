@@ -39,6 +39,12 @@
             git push origin -u main
 
         ### These steps ideally should be done in a deploy workflow, and referenced here
+        
+        - name: npm install, build, and test
+          run: |
+            npm install
+            npm run build 
+            npm run test
 
         - name: Configure AWS credentials from your account
           uses: aws-actions/configure-aws-credentials@v1
