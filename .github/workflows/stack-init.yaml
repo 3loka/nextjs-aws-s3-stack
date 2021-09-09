@@ -11,7 +11,7 @@
         - name: checkout
           uses: actions/checkout@v2
           with:
-            ref: stack-initialized
+            # ref: development
             persist-credentials: false
         
         - name: use node.js v14 
@@ -38,10 +38,10 @@
             
         - name: Commit generated code and initialize workflows
           run: |
-            git checkout -b stack-initialized  main
+            git checkout -b development  main
             git add .
             git commit -m "Generate framework code and initialize workflows"
-            git push origin -u stack-initialized
+            git push origin development
             # We cant push to main since its protected in this stack
 
         ### These steps ideally should be done in a deploy workflow, and referenced here

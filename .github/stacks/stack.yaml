@@ -55,7 +55,7 @@ configs:
         - aws
 
   - branches:   
-    - name: stack-initialized                            # A temporary branch for stack initialization since main is protected.
+    - name: development                                 # This is an unprotected branch
       parameters: 
         dismiss-stale-reviews: true 
         required-approving-review-count: 0
