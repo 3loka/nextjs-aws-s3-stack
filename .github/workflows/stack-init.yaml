@@ -23,7 +23,7 @@
 
         - name: Stacks framework code generation
           run: |
-            npx create-next-app nextjs-scaffold --use-npm 
+            npx create-next-app nextjs-scaffold --use-npm --example "https://github.com/vercel/next-learn/tree/master/basics/learn-starter"
             cp -r nextjs-scaffold/* .
             rm -rf nextjs-scaffold
             # npm run env -- next export -o build
