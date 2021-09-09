@@ -36,7 +36,7 @@ inputs:
     - 'true'
     - 'true'
     is_secret: true
-    # type: boolean #Change it to boolean once we figure out how to get the string value into secrets
+    # type: boolean # TODO: Change it to boolean once we figure out how to get the string value into secrets
 
 configs:
   - repo-metadata:
@@ -57,22 +57,17 @@ configs:
         - nextjs
         - aws
 
-  # - branches:
-  #   - name: main
-  #     parameters:
-  #       dismiss-stale-reviews: true                     
-  #       required-approving-review-count: 1
-  #       require-code-owner-reviews: true
+  - branches:                                            # branching configs for new repository
+    - name: main
+      parameters:
+        dismiss-stale-reviews: true                      # default: false
+        required-approving-review-count: 1
+        require-code-owner-reviews: true
 
-  # - environments: 
-  #   - name: production
-  #     parameters:
-  #       protected-branches: true
-            
-  # - security:
-  #     parameters: 
-  #       vulnerability-alerts: true
-  #       automated-security-fixes: true
+  - environments:                                        # environment configs for new repository
+    - name: production
+      parameters:
+        protected-branches: true
 
 github-apps:
 - name: AWS
