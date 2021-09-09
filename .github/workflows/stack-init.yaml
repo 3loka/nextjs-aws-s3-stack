@@ -24,6 +24,7 @@
             npx create-next-app nextjs-scaffold --use-npm --example "https://github.com/vercel/next-learn-starter/tree/master/learn-starter"
             cp -r nextjs-scaffold/* .
             rm -rf nextjs-scaffold
+            # npm run env -- next export -o build
             sed 's/next build/next build \&\& next export/g' package.json > package1.json; mv package1.json package.json
             
         - name: Configure git
