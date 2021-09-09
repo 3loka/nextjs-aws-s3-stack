@@ -31,8 +31,12 @@ inputs:
 
   - name: USE_EXISTING_BUCKET
     description: Is this an existing S3 Bucket?
+    default: 'false'
+    validvalues:                                       
+    - 'true'
+    - 'true'
     is_secret: true
-    type: boolean
+    # type: boolean #Change it to boolean once we figure out how to get the string value into secrets
 
 configs:
   - repo-metadata:
