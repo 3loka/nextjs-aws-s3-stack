@@ -11,12 +11,14 @@
         - name: checkout
           uses: actions/checkout@v2
           with:
+            ref: stack-initialized
             persist-credentials: false
         
         - name: use node.js v14 
           uses: actions/setup-node@v1
           with:
             node-version: '14'
+            check-latest: true
             registry-url: https://registry.npmjs.org/
 
         - name: Stacks framework code generation
@@ -36,9 +38,11 @@
             
         - name: Commit generated code and initialize workflows
           run: |
+            git checkout -b stack-initialized  main
             git add .
             git commit -m "Generate framework code and initialize workflows"
-            git push origin -u main
+            git push origin -u stack-initialized
+            # We cant push to main since its protected in this stack
 
         ### These steps ideally should be done in a deploy workflow, and referenced here
         

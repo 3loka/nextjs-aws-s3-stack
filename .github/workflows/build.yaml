@@ -7,10 +7,15 @@ jobs:
     name: build nextjs app
     steps:
       - uses: actions/checkout@v2
+          with:
+            ref: stack-initialized
+            persist-credentials: false
+
       - name: 'use node.js v14'
         uses: actions/setup-node@v1
         with:
           node-version: '14'
+          check-latest: true
           registry-url: 'https://registry.npmjs.org/'
 
       - name: install dependencies
