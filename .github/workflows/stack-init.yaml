@@ -82,7 +82,7 @@
             REGION: ${{ secrets.AWS_REGION }}
           # run:  echo "Web app is installed and you can access here http://${{ env.BUCKET.s3 }}-website.${{ env.REGION }}.amazonaws.com"
           run: |
-            git checkout -b development 
+            git checkout 
             echo "Web app is installed and you can access here http://s3-bucket-${{ env.BUCKET }}.s3-website.${{ env.REGION }}.amazonaws.com" >> README.md
             git add .
             git commit -m "Added URL to Readme."
