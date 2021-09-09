@@ -1,4 +1,4 @@
-<a href="https://github.com/3loka/nextjs-aws-stack"><img src="./.github/stacks/use-this-stack.svg"/></a>
+<a href="https://github.com/3loka/nextjs-aws-s3-stack"><img src="./.github/stacks/use-this-stack.svg"/></a>
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="Hugo" width="200" height ="100"/>  
 
@@ -14,7 +14,7 @@ You can spin a website in seconds using NextJS.
 
 Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching and more. No config needed. Read more about [next.js](https://nextjs.org/learn)
 
-The website is hosted in AWS S3
+The website is hosted in AWS S3. 
 
 The stack also sets up a proper Github CI/CD environment by taing care of the following things
 - creating a "main" branch
@@ -22,10 +22,10 @@ The stack also sets up a proper Github CI/CD environment by taing care of the fo
 
 ## What are the inputs to pass while setting up the stack?
 ```
-- AWS_S3_BUCKET_NAME
-- AWS_S3_KEY
-- AWS_S3_SECRET_ACCESS_KEY
-
+- AWS S3 Bucket Name
+- AWS S3 Key
+- AWS S3 Secret Access Key
+- Use Existing Bucket?
 ```
 
 #### Github apps installed with this stack
