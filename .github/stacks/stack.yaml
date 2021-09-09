@@ -58,7 +58,9 @@ configs:
     - name: stack-initialized                            # A temporary branch for stack initialization since main is protected.
       parameters: 
         dismiss-stale-reviews: true 
-        
+        required-approving-review-count: 0
+        require-code-owner-reviews: false
+
     - name: main
       parameters:
         dismiss-stale-reviews: true                      # default: false
