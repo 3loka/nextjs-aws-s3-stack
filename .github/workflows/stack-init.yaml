@@ -40,20 +40,6 @@
 
         ### These steps ideally should be done in a deploy workflow, and referenced here
 
-        - uses: actions/checkout@v2
-      
-        - name: use node.js v14
-          uses: actions/setup-node@v1
-          with:
-            node-version: '14'
-            registry-url: https://registry.npmjs.org/
-        
-        - name: npm install, build, and test
-          run: |
-            npm install
-            npm run build 
-            npm run test
-
         - name: Configure AWS credentials from your account
           uses: aws-actions/configure-aws-credentials@v1
           with:
