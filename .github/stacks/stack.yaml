@@ -31,7 +31,7 @@ inputs:
 
   - name: USE_EXISTING_BUCKET
     description: Is this an existing S3 Bucket (Type true or false, Default value is false)?
-    default:false
+    default: false
     is_secret: true
     # type: boolean # TODO: Change it to boolean once we figure out how to get the string value into secrets
 
