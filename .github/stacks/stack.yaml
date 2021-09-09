@@ -8,10 +8,6 @@ branding:
   color: 'blue'
 
 inputs:
-  - name: AWS_S3_BUCKET_NAME
-    description: Provide a Unique name for your AWS S3 Bucket
-    is_secret: true
-    required: true
 
   - name: AWS_KEY_ID
     description: Enter your AWS Key ID. This will be stored as a secret
@@ -25,8 +21,15 @@ inputs:
 
   - name: AWS_REGION
     description: Which Region do you want to Deploy to?
-    is_secret: true
     required: true
+
+  - name: AWS_S3_BUCKET_NAME
+    description: Provide a Unique name for your AWS S3 Bucket
+    required: true
+
+  - name: USE_EXISTING_BUCKET
+    description: Is this an existing S3 Bucket?
+    type: boolean
 
 configs:
   - repo-metadata:
