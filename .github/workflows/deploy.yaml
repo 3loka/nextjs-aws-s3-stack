@@ -31,10 +31,10 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
         
       - name: Creating a bucket in s3
-        if: true == contains(['false'], ${{ secrets.USE_EXISTING_BUCKET }})
+        if: "contains(${{ secrets.USE_EXISTING_BUCKET }}, 'false')"
         run : aws s3 mb s3://${{ secrets.AWS_S3_BUCKET_NAME }} 
       - name: Updaing bucket policy
-        if: true == contains(['false'], ${{ secrets.USE_EXISTING_BUCKET }})
+        if: "contains(${{ secrets.USE_EXISTING_BUCKET }}, 'false')"
         run: aws s3api put-bucket-policy --bucket ${{ secrets.AWS_S3_BUCKET_NAME }} --policy '{"Statement":[{"Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::${{ secrets.AWS_S3_BUCKET_NAME }}/*"}]}'
        
       - name: Uploading files to s3

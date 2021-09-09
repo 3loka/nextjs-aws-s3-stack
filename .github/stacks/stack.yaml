@@ -21,14 +21,17 @@ inputs:
 
   - name: AWS_REGION
     description: Which Region do you want to Deploy to?
+    is_secret: true
     required: true
 
   - name: AWS_S3_BUCKET_NAME
     description: Provide a Unique name for your AWS S3 Bucket
+    is_secret: true
     required: true
 
   - name: USE_EXISTING_BUCKET
     description: Is this an existing S3 Bucket?
+    is_secret: true
     type: boolean
 
 configs:
@@ -44,6 +47,8 @@ configs:
             value: {{inputs.AWS_S3_BUCKET_NAME}}
           - name: AWS_REGION
             value: {{inputs.AWS_REGION}}
+          - name: USE_EXISTING_BUCKET
+            value: {{inputs.USE_EXISTING_BUCKET}}
         topics:
         - nextjs
         - aws
