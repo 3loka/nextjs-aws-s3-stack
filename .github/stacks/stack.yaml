@@ -55,19 +55,13 @@ configs:
         - aws
 
   - branches:   
-    - name: development                                 # This is an unprotected branch
-      parameters: 
-        dismiss-stale-reviews: true 
-        required-approving-review-count: 0
-        require-code-owner-reviews: false
-
     - name: main
       parameters:
-        dismiss-stale-reviews: true                      # default: false
+        dismiss-stale-reviews: true                      
         required-approving-review-count: 1
         require-code-owner-reviews: true
 
-  - environments:                                        # environment configs for new repository
+  - environments:                                        
     - name: production
       parameters:
         protected-branches: true

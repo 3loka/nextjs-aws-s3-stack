@@ -11,7 +11,6 @@
         - name: checkout
           uses: actions/checkout@v2
           with:
-            # ref: development
             persist-credentials: false
         
         - name: use node.js v14 
@@ -38,10 +37,10 @@
             
         - name: Commit generated code and initialize workflows
           run: |
-            git checkout -b development  main
+            # git checkout -b development  main
             git add .
             git commit -m "Generate framework code and initialize workflows"
-            git push origin development
+            git push 
             # We cant push to main since its protected in this stack
 
         ### These steps ideally should be done in a deploy workflow, and referenced here
@@ -86,4 +85,4 @@
             echo -e "\n\nWeb app is installed and you can access here http://${{ env.BUCKET }}.s3-website.${{ env.REGION }}.amazonaws.com" >> README.md
             git add .
             git commit -m "Added URL to Readme."
-            git push origin development
+            git push 
