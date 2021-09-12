@@ -22,9 +22,9 @@ The stack also sets up a proper Github CI/CD environment by taing care of the fo
 
 ## What are the inputs to pass while setting up the stack?
 ```
+- AWS Key
+- AWS Secret Access Key
 - AWS S3 Bucket Name
-- AWS S3 Key
-- AWS S3 Secret Access Key
 - Use Existing Bucket?
 ```
 
