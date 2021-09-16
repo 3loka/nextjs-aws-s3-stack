@@ -67,8 +67,8 @@ configs:
         protected-branches: true
 
 github-apps:
-- name: codecov
-- name: code-inspector
+- name: Code Coverage
+- name: Code Inspector
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
