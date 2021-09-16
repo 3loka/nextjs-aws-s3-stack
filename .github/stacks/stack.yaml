@@ -67,7 +67,8 @@ configs:
         protected-branches: true
 
 github-apps:
-- name: AWS
+- name: codecov
+- name: code-inspector
 
 init:
 - uses: ".github/workflows/stack-init.yaml"

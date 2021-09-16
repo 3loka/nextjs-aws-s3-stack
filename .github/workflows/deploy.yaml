@@ -10,8 +10,8 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-          with:
-            persist-credentials: false
+        with:
+          persist-credentials: false
 
       - name: Check file existence
         id: check_files
