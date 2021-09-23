@@ -67,8 +67,8 @@ configs:
         protected-branches: true
 
 github-apps:
-- slug: Code Inspector
-- slug: Sider
+- slug: code-inspector
+- slug: sider
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
