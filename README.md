@@ -29,7 +29,9 @@ The stack also sets up a proper Github CI/CD environment by taing care of the fo
 ```
 
 #### Github apps installed with this stack
-None
+```
+Sider
+```
 
 ## How to setup local development server?
 ```
