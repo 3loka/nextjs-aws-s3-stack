@@ -1,0 +1,74 @@
+version: 0.1.0   
+
+name: A stack to deploy nextjs site to AWS S3
+description: A stack to deploy nextjs site to AWS S3
+
+branding:
+  icon: 'aws.svg'
+  color: 'blue'
+
+inputs:
+
+  - name: AWS_KEY_ID
+    description: Enter your AWS Key ID. This will be stored as a secret
+    is_secret: true
+    required: true
+    
+  - name: AWS_SECRET_ACCESS_KEY
+    description: Enter your AWS Secret Access key. This will be stored as a secret
+    is_secret: true
+    required: true
+
+  - name: AWS_REGION
+    description: Which Region do you want to Deploy to?
+    is_secret: true
+    required: true
+
+  - name: AWS_S3_BUCKET_NAME
+    description: Provide a Unique name for your AWS S3 Bucket
+    is_secret: true
+    required: true
+
+  - name: USE_EXISTING_BUCKET
+    description: Is this an existing S3 Bucket (Type true or false, Default value is false)?
+    default: 'false'
+    is_secret: true
+    # type: boolean # TODO: Change it to boolean once we figure out how to get the string value into secrets
+
+configs:
+  - repo-metadata:
+      parameters:
+        description: 'NextJS + AWS'
+        secrets: 
+          - name: AWS_KEY_ID
+            value: {{inputs.AWS_KEY_ID}}
+          - name: AWS_SECRET_ACCESS_KEY
+            value: {{inputs.AWS_SECRET_ACCESS_KEY}}
+          - name: AWS_S3_BUCKET_NAME
+            value: {{inputs.AWS_S3_BUCKET_NAME}}
+          - name: AWS_REGION
+            value: {{inputs.AWS_REGION}}
+          - name: USE_EXISTING_BUCKET
+            value: {{inputs.USE_EXISTING_BUCKET}}
+        topics:
+        - nextjs
+        - aws
+
+  - branches:   
+    - name: main
+      parameters:
+        dismiss-stale-reviews: true                      
+        required-approving-review-count: 0
+        require-code-owner-reviews: false
+
+  - environments:                                        
+    - name: production
+      parameters:
+        protected-branches: true
+
+github-apps:
+- slug: code-inspector
+- slug: sider
+
+init:
+- uses: ".github/workflows/stack-init.yaml"
