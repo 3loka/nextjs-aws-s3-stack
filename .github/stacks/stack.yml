@@ -67,7 +67,7 @@ configs:
         protected-branches: true
 
 github-apps:
-- slug: code-inspector
+- slug: codecov
 - slug: sider
 
 init:
