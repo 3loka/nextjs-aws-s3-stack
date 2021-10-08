@@ -1,6 +1,6 @@
 [![Use this template](https://github.com/stack-instance/badge.svg)](https://github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=nextjs-aws-s3-stack)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="Hugo" width="200" height ="100"/>  
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="nextjs" width="200" height ="100"/>  
 
  <p>
     <img src="https://assets.vercel.com/image/upload/v1607554385/repositories/next-js/next-logo.png" height="20">
@@ -29,7 +29,9 @@ The stack also sets up a proper Github CI/CD environment by taing care of the fo
 ```
 
 #### Github apps installed with this stack
-None
+```
+Sider
+```
 
 ## How to setup local development server?
 ```
