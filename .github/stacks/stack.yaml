@@ -4,39 +4,38 @@ name: A stack to deploy nextjs site to AWS S3
 description: A stack to deploy nextjs site to AWS S3
 
 branding:
-  icon: 'aws.svg'
+  icon: 'cloud'
   color: 'blue'
 
 inputs:
-
   - name: AWS_KEY_ID
     description: Enter your AWS Key ID. This will be stored as a secret
-    is_secret: true
+    is-secret: true
     required: true
     
   - name: AWS_SECRET_ACCESS_KEY
     description: Enter your AWS Secret Access key. This will be stored as a secret
-    is_secret: true
+    is-secret: true
     required: true
 
   - name: AWS_REGION
     description: Which Region do you want to Deploy to?
-    is_secret: true
+    is-secret: true
     required: true
 
   - name: AWS_S3_BUCKET_NAME
     description: Provide a Unique name for your AWS S3 Bucket
-    is_secret: true
+    is-secret: true
     required: true
 
   - name: USE_EXISTING_BUCKET
     description: Is this an existing S3 Bucket (Type true or false, Default value is false)?
     default: 'false'
-    is_secret: true
+    is-secret: true
     # type: boolean # TODO: Change it to boolean once we figure out how to get the string value into secrets
 
 configs:
-  - repo-metadata:
+  repo-metadata:
       parameters:
         description: 'NextJS + AWS'
         secrets: 
@@ -54,21 +53,21 @@ configs:
         - nextjs
         - aws
 
-  - branches:   
+  branches:   
     - name: main
       parameters:
         dismiss-stale-reviews: true                      
         required-approving-review-count: 0
         require-code-owner-reviews: false
 
-  - environments:                                        
+  environments:                                        
     - name: production
       parameters:
-        protected-branches: true
+        protected-branches: false
 
 github-apps:
 - name: Code Inspector
 - name: Sider
 
 init:
-- uses: ".github/workflows/stack-init.yaml"
+ uses: ".github/workflows/stack-init.yaml"
