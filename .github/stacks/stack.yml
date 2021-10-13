@@ -62,8 +62,11 @@ configs:
 
   environments:                                        
     - name: development
-      parameters:
+      parameters: 
         protected-branches: false
+        custom-branch-policies:
+          - main
+          - releases/*
 
 github-apps:
 - slug: sider
