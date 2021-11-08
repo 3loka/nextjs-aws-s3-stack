@@ -1,5 +1,5 @@
-[![Use this template](https://github.com/stack-instance/badge.svg)](https://github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=nextjs-aws-s3-stack)
-
+[![Use this template](https://admin.github.com/stack-instance/badge.svg)](https://admin.github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=nextjs-aws-s3-stack)
+                
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="nextjs" width="200" height ="100"/>  
 
  <p>
