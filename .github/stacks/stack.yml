@@ -4,8 +4,8 @@ name: A stack to deploy nextjs site to AWS S3
 description: A stack to deploy nextjs site to AWS S3
 
 branding:
-  icon: 'cloud'
-  color: 'blue'
+ icon: 'cloud'
+ color: 'blue'
 
 inputs:
   - name: AWS_KEY_ID
