@@ -32,7 +32,6 @@ inputs:
     description: Is this an existing S3 Bucket (Type true or false, Default value is false)?
     default: false
     is-secret: true
-    # type: boolean # TODO: Change it to boolean once we figure out how to get the string value into secrets
 
 configs:
   repo-metadata:
@@ -65,6 +64,6 @@ configs:
         allowed-branch-rules:
           - main
           - releases/*
-
+          
 init:
- uses: "stack-init.yaml"
+  uses: "stack-init.yaml"
