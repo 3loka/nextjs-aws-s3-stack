@@ -19,7 +19,7 @@ inputs:
     required: true
 
   - name: AWS_REGION
-    description: Which Region do you want to Deploy to?
+    description: Which Region do you want to Deploy to
     is-secret: true
     required: true
 
@@ -29,8 +29,8 @@ inputs:
     required: true
 
   - name: USE_EXISTING_BUCKET
-    description: Is this an existing S3 Bucket (Type true or false, Default value is false)?
-    default: false
+    description: Is this an existing S3 Bucket (Type true or false, Default value is false)
+    default: 'false'
     is-secret: true
 
 configs:
