@@ -32,7 +32,7 @@ inputs:
     description: Is this an existing S3 Bucket (Type true or false, Default value is false)?
     default: 'false'
     is-secret: true
-    required: false
+    required: true
 
 configs:
   repo-metadata:
