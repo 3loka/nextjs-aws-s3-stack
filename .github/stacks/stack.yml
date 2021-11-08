@@ -56,7 +56,7 @@ configs:
   branches:   
     - name: main
       parameters:
-        dismiss-stale-reviews: true   
+        enforce-admins: true
 
   environments:                                        
     - name: development
@@ -67,7 +67,7 @@ configs:
           - releases/*
 
 github-apps:
-- slug: sider
+ - slug: sider
 
 init:
  uses: "stack-init.yaml"
