@@ -66,8 +66,5 @@ configs:
           - main
           - releases/*
 
-github-apps:
-- slug: sider
-
 init:
  uses: "stack-init.yaml"
