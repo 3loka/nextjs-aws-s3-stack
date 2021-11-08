@@ -35,31 +35,31 @@ inputs:
 
 configs:
   repo-metadata:
-      parameters:
-        description: 'NextJS + AWS'
-        secrets: 
-          - name: AWS_KEY_ID
-            value: ${{inputs.AWS_KEY_ID}}
-          - name: AWS_SECRET_ACCESS_KEY
-            value: ${{inputs.AWS_SECRET_ACCESS_KEY}}
-          - name: AWS_S3_BUCKET_NAME
-            value: ${{inputs.AWS_S3_BUCKET_NAME}}
-          - name: AWS_REGION
-            value: ${{inputs.AWS_REGION}}
-          - name: USE_EXISTING_BUCKET
-            value: ${{inputs.USE_EXISTING_BUCKET}}
-        topics:
-        - nextjs
-        - aws
+    parameters:
+      description: 'NextJS app on GH pages'
+      secrets: 
+        - name: AWS_KEY_ID
+          value: ${{inputs.AWS_KEY_ID}}
+        - name: AWS_SECRET_ACCESS_KEY
+          value: ${{inputs.AWS_SECRET_ACCESS_KEY}}
+        - name: AWS_S3_BUCKET_NAME
+          value: ${{inputs.AWS_S3_BUCKET_NAME}}
+        - name: AWS_REGION
+          value: ${{inputs.AWS_REGION}}
+        - name: USE_EXISTING_BUCKET
+          value: ${{inputs.USE_EXISTING_BUCKET}}
+      topics:
+      - nextjs
+      - aws
 
-  branches:   
+  branches:
     - name: main
       parameters:
         enforce-admins: true
 
-  environments:                                        
+  environments:
     - name: development
-      parameters: 
+      parameters:
         protected-branches: false
         allowed-branch-rules:
           - main
